@@ -2,7 +2,10 @@ import { defineConfig } from 'vite';
 import RubyPlugin from 'vite-plugin-ruby';
 import vue from '@vitejs/plugin-vue';
 
-import path from 'path';
+
+// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
+import vuetify from 'vite-plugin-vuetify'
+
 
 export default defineConfig({
   resolve: {
@@ -14,7 +17,11 @@ export default defineConfig({
     ],
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   },
-  plugins: [vue(), RubyPlugin()],
+  plugins: [
+		vue(),
+		RubyPlugin(),
+		vuetify({ autoImport: true }),
+	],
   css: {
     preprocessorOptions: {
       scss: {
