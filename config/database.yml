@@ -2,9 +2,9 @@ default: &default
   adapter: "postgresql"
   encoding: "unicode"
   database: <%= ENV.fetch("POSTGRES_DB") { "wheredoesithurt" } %>
-  username: <%= ENV.fetch("POSTGRES_USER") { "wheredoesithurt" } %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "password" } %>
-  host: <%= ENV.fetch("POSTGRES_HOST") { "postgres" } %>
+  username: <%= ENV.fetch("POSTGRES_USER") { "WhereDoesItHurt" } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "wheredoesithurt" } %>
+  host: <%= ENV.fetch("POSTGRES_HOST") { "127.0.0.1" } %>
   port: <%= ENV.fetch("POSTGRES_PORT") { 5432 } %>
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
