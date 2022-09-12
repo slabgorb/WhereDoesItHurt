@@ -16,3 +16,4 @@ node_modules
 *.key
 .rvmrc
 *.log
+public/vite-dev/*
