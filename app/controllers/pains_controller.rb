@@ -1,0 +1,2 @@
+class PainsController < ApplicationController
+end

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :pains, export: true
+
   mount Sidekiq::Web => '/sidekiq'
   root to: 'application#website'
 
