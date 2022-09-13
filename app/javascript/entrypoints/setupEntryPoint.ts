@@ -5,7 +5,8 @@ import { globalProperties } from './globalProperties';
 import { pinia } from '@/stores';
 import { setHTTPHeader } from '@/services/http.service';
 import AuthService from '@/services/auth.service';
-
+import vuetify from '../plugins/vuetify';
+import { loadFonts } from '../plugins/webfontloader'
 const token = AuthService.getToken();
 
 if (token) {
@@ -14,10 +15,11 @@ if (token) {
 
 export const setupEntryPoint = (rootComponent: Component, router: Router) => {
   const app = createApp(rootComponent);
-
+  loadFonts();
   app.use(router);
   app.use(pinia);
   app.use(VueQueryPlugin);
+  app.use(vuetify);
   app.config.globalProperties = globalProperties;
 
   app.mount('#app');

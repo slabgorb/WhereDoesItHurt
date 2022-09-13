@@ -154,6 +154,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    js_from_routes (2.0.6)
+      railties (>= 5.1, < 8)
     json (2.6.2)
     jsonapi-rspec (0.0.11)
       rspec-core
@@ -393,6 +395,7 @@ DEPENDENCIES
   fasterer
   has_scope
   jbuilder
+  js_from_routes
   jsonapi-rspec
   jsonapi-serializer
   jsonapi.rb
