@@ -12,4 +12,6 @@
 #  updated_at  :datetime         not null
 #
 class Pain < ApplicationRecord
+    enum internality: [:internal, :external]
+    enum sensation: [:sharp, :dull, :burning, :tingling, :numbness, :other]
 end

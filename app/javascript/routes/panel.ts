@@ -1,4 +1,6 @@
 const Index = () => import('@/pages/panel/IndexPage.vue');
+const Pain = () => import('@/pages/panel/PainPage.vue');
+const Therapy = () => import('@/pages/panel/TherapyPage.vue');
 
 const routes = [
   {
@@ -6,6 +8,20 @@ const routes = [
     name: 'index',
     components: {
       default: Index,
+    },
+  },
+  {
+    path: '/pain',
+    name: 'pain',
+    components: {
+      default: Pain,
+    },
+  },
+  {
+    path: '/therapy',
+    name: 'therapy',
+    components: {
+      default: Therapy,
     },
   },
 ];

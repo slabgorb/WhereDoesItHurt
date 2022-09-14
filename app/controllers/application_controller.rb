@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
+  respond_to :json
+
+
   include Pagy::Backend
 
   after_action { pagy_headers_merge(@pagy) if @pagy }
