@@ -4,6 +4,15 @@
     <v-card-subtitle>record your current pain level</v-card-subtitle>
     <canvas ref="painRecord" class="pain-record">
     </canvas>
+    <v-select :items="sensationList" v-model="sensation" label="sensation" />
+    <v-rating v-model="painLevel" label="pain level" length=9
+      :item-labels=painLevels />
+    <v-chip>{{ painLevels[painLevel % 2 == 1 ? painLevel - 1 : painLevel] }}
+    </v-chip>
+    <v-radio-group v-model="internality" label="internal or external pain?">
+      <v-radio label="internal" value="0" />
+      <v-radio label="external" value="1" />
+    </v-radio-group>
   </v-card>
 </template>
 
@@ -22,6 +31,11 @@
 import imgUrl from '@/assets/images/pain_chart.jpg'
 import { onMounted, ref } from 'vue';
 const painRecord = ref<HTMLCanvasElement>();
+const painLevel = ref(1);
+const sensation = ref('');
+const internality = ref(0);
+
+const painLevels = ['no pain', '', 'mild', '', 'moderate', '', 'severe', '', 'very severe', '', 'unendurable'];
 
 let currentlyPainting = false;
 let context: CanvasRenderingContext2D | null = null;
@@ -75,35 +89,8 @@ const internalityList = [
   },
 ];
 
-const sensationList = [
-  {
-    value: 0,
-    label: "sharp",
-  },
-  {
-    value: 1,
-    label: "dull",
-  },
-  {
-    value: 2,
-    label: "burning",
-  },
-  {
-    value: 3,
-    label: "tingling",
-  },
-  {
-    value: 4,
-    label: "numbness",
-  },
-  {
-    value: 5,
-    label: "other",
-  },
-];
+const sensationList = ['sharp', 'dull', 'burning', 'tingling', 'numbness', 'itchy', 'throbbing', 'cramping', 'stabbing', 'squeezing', 'twitching', 'stinging', 'aching', 'crushing', 'pulling', 'tugging', 'stiff', 'heavy', 'tender', 'sore', 'raw']
 
-const sensation = ref('');
-const internality = ref(0);
 
 </script>
 
