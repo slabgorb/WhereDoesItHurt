@@ -1,22 +1,16 @@
 <template>
   <BaseLayout>
-    <v-app-bar color="primary">
-      <template v-slot="prepend">
-        <v-app-bar-nav-icon @click="drawer = !drawer" />
-        <v-toolbar-title>Where Does It Hurt?</v-toolbar-title>
-        <v-icon>mdi-logout</v-icon>
-      </template>
-    </v-app-bar>
-    <v-navigation-drawer v-model="drawer">
-      <v-list density="compact" nav>
-        <v-list-item prepend-icon="mdi-human" title="Pain Check" value="/panel/pain"></v-list-item>
-        <v-list-item prepend-icon="mdi-pill" title="Therapeutic" value="/panel/therapy"></v-list-item>
-        <v-list-item prepend-icon="mdi-star" title="Settings" value="/panel/settings"></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <div>
+    <v-card class="mx-auto" max-width="1024">
+      <v-app-bar color="primary">
+        <v-btn to="/pain" icon="mdi-human" />
+        <v-btn to="/treatment" icon="mdi-pill" />
+        <v-btn icon="mdi-setting" />
+      </v-app-bar>
+      <div>
         <router-view />
-    </div>
+      </div>
+    </v-card>
+
   </BaseLayout>
 </template>
 
@@ -25,7 +19,4 @@ import BaseLayout from '../BaseLayout.vue';
 import { useAuthStore } from '@/stores/auth.store';
 const authStore = useAuthStore();
 var drawer = false;
-const logout = () => {
-  authStore.logout();
-};
 </script>
