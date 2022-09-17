@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_13_130227) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_17_105503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,12 +25,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_130227) do
     t.index ["user_id"], name: "index_allowlisted_jwts_on_user_id"
   end
 
+  create_table "i_pains", force: :cascade do |t|
+    t.integer "level"
+    t.jsonb "location"
+    t.integer "sensation"
+    t.integer "internality"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pains", force: :cascade do |t|
     t.integer "level"
     t.jsonb "location"
     t.integer "sensation"
     t.integer "internality"
     t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "therapies", force: :cascade do |t|
+    t.integer "action"
+    t.integer "efficacy"
+    t.integer "duration"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
